@@ -16,7 +16,7 @@ namespace prjSp1MiPrimerApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGastoMensual());
+            Application.Run(new frmMenu());
         }
     }
 }

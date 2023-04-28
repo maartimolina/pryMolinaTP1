@@ -17,12 +17,12 @@ namespace prjSp1MiPrimerApp
             InitializeComponent();
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnMedicamento_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmAlacena_Load(object sender, EventArgs e)
         {
 
         }
