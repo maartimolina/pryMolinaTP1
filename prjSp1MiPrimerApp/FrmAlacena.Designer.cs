@@ -28,23 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAlacena));
             this.btnComida = new System.Windows.Forms.RadioButton();
             this.btnLimpieza = new System.Windows.Forms.RadioButton();
             this.btnMedicamento = new System.Windows.Forms.RadioButton();
-            this.lstTipo = new System.Windows.Forms.ComboBox();
+            this.lstLugar = new System.Windows.Forms.ComboBox();
             this.lstNombre = new System.Windows.Forms.ComboBox();
-            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblLugar = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.nudCantidadMinima = new System.Windows.Forms.NumericUpDown();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblCantidadMinima = new System.Windows.Forms.Label();
             this.chkCaduca = new System.Windows.Forms.CheckBox();
-            this.DtpCaducidad = new System.Windows.Forms.DateTimePicker();
+            this.dtpCaducidad = new System.Windows.Forms.DateTimePicker();
             this.lblCalucidad = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.mrcTipodeProducto = new System.Windows.Forms.GroupBox();
+            this.lstLista = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadMinima)).BeginInit();
             this.mrcTipodeProducto.SuspendLayout();
@@ -84,15 +86,19 @@
             this.btnMedicamento.TabStop = true;
             this.btnMedicamento.Text = "Medicamento";
             this.btnMedicamento.UseVisualStyleBackColor = true;
-            this.btnMedicamento.CheckedChanged += new System.EventHandler(this.btnMedicamento_CheckedChanged);
             // 
-            // lstTipo
+            // lstLugar
             // 
-            this.lstTipo.FormattingEnabled = true;
-            this.lstTipo.Location = new System.Drawing.Point(184, 132);
-            this.lstTipo.Name = "lstTipo";
-            this.lstTipo.Size = new System.Drawing.Size(120, 21);
-            this.lstTipo.TabIndex = 4;
+            this.lstLugar.FormattingEnabled = true;
+            this.lstLugar.Items.AddRange(new object[] {
+            "Alacena\t",
+            "Freezer\t",
+            "Heladera\t\t",
+            "Cajon de Medicamentos \t"});
+            this.lstLugar.Location = new System.Drawing.Point(184, 132);
+            this.lstLugar.Name = "lstLugar";
+            this.lstLugar.Size = new System.Drawing.Size(120, 21);
+            this.lstLugar.TabIndex = 4;
             // 
             // lstNombre
             // 
@@ -102,15 +108,15 @@
             this.lstNombre.Size = new System.Drawing.Size(120, 21);
             this.lstNombre.TabIndex = 5;
             // 
-            // lblTipo
+            // lblLugar
             // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(12, 127);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(52, 23);
-            this.lblTipo.TabIndex = 6;
-            this.lblTipo.Text = "Tipo";
+            this.lblLugar.AutoSize = true;
+            this.lblLugar.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLugar.Location = new System.Drawing.Point(12, 127);
+            this.lblLugar.Name = "lblLugar";
+            this.lblLugar.Size = new System.Drawing.Size(64, 23);
+            this.lblLugar.TabIndex = 6;
+            this.lblLugar.Text = "Lugar";
             // 
             // lblNombre
             // 
@@ -167,12 +173,12 @@
             this.chkCaduca.Text = "Caduca";
             this.chkCaduca.UseVisualStyleBackColor = true;
             // 
-            // DtpCaducidad
+            // dtpCaducidad
             // 
-            this.DtpCaducidad.Location = new System.Drawing.Point(164, 415);
-            this.DtpCaducidad.Name = "DtpCaducidad";
-            this.DtpCaducidad.Size = new System.Drawing.Size(228, 20);
-            this.DtpCaducidad.TabIndex = 13;
+            this.dtpCaducidad.Location = new System.Drawing.Point(164, 415);
+            this.dtpCaducidad.Name = "dtpCaducidad";
+            this.dtpCaducidad.Size = new System.Drawing.Size(228, 20);
+            this.dtpCaducidad.TabIndex = 13;
             // 
             // lblCalucidad
             // 
@@ -192,6 +198,7 @@
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -201,6 +208,7 @@
             this.btnAceptar.TabIndex = 16;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // mrcTipodeProducto
             // 
@@ -215,27 +223,40 @@
             this.mrcTipodeProducto.TabStop = false;
             this.mrcTipodeProducto.Text = "Tipo de Producto";
             // 
+            // lstLista
+            // 
+            this.lstLista.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstLista.FormattingEnabled = true;
+            this.lstLista.ItemHeight = 18;
+            this.lstLista.Location = new System.Drawing.Point(469, 99);
+            this.lstLista.Name = "lstLista";
+            this.lstLista.Size = new System.Drawing.Size(345, 400);
+            this.lstLista.TabIndex = 18;
+            this.lstLista.SelectedIndexChanged += new System.EventHandler(this.lstLista_SelectedIndexChanged);
+            // 
             // frmAlacena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(563, 537);
+            this.ClientSize = new System.Drawing.Size(826, 537);
+            this.Controls.Add(this.lstLista);
             this.Controls.Add(this.mrcTipodeProducto);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblCalucidad);
-            this.Controls.Add(this.DtpCaducidad);
+            this.Controls.Add(this.dtpCaducidad);
             this.Controls.Add(this.chkCaduca);
             this.Controls.Add(this.lblCantidadMinima);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.nudCantidadMinima);
             this.Controls.Add(this.nudCantidad);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblTipo);
+            this.Controls.Add(this.lblLugar);
             this.Controls.Add(this.lstNombre);
-            this.Controls.Add(this.lstTipo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.lstLugar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAlacena";
             this.Text = "Alacena";
             this.Load += new System.EventHandler(this.frmAlacena_Load);
@@ -253,19 +274,20 @@
         private System.Windows.Forms.RadioButton btnComida;
         private System.Windows.Forms.RadioButton btnLimpieza;
         private System.Windows.Forms.RadioButton btnMedicamento;
-        private System.Windows.Forms.ComboBox lstTipo;
+        private System.Windows.Forms.ComboBox lstLugar;
         private System.Windows.Forms.ComboBox lstNombre;
-        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label lblLugar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.NumericUpDown nudCantidad;
         private System.Windows.Forms.NumericUpDown nudCantidadMinima;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblCantidadMinima;
         private System.Windows.Forms.CheckBox chkCaduca;
-        private System.Windows.Forms.DateTimePicker DtpCaducidad;
+        private System.Windows.Forms.DateTimePicker dtpCaducidad;
         private System.Windows.Forms.Label lblCalucidad;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.GroupBox mrcTipodeProducto;
+        private System.Windows.Forms.ListBox lstLista;
     }
 }

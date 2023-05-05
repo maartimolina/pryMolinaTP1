@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.btnAlacena = new System.Windows.Forms.Button();
             this.btnGastoMensual = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -66,8 +67,10 @@
             this.ClientSize = new System.Drawing.Size(458, 366);
             this.Controls.Add(this.btnAlacena);
             this.Controls.Add(this.btnGastoMensual);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenu";
             this.Text = "frmMenu";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.ResumeLayout(false);
 
         }

@@ -31,5 +31,10 @@ namespace prjSp1MiPrimerApp
             frmAlacena Alacena= new frmAlacena();   
             Alacena.ShowDialog();   
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

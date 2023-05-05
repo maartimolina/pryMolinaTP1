@@ -56,5 +56,10 @@ namespace prjSp1MiPrimerApp
             txtVarios.Text = string.Empty;
             lblResultado.Text= string.Empty;
         }
+
+        private void mrcFinanzas_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

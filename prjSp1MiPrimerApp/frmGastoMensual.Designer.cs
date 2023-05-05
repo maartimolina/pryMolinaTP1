@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGastoMensual));
             this.mrcFinanzas = new System.Windows.Forms.GroupBox();
             this.lblResultado = new System.Windows.Forms.Label();
             this.lblSaldoRestante = new System.Windows.Forms.Label();
@@ -60,12 +61,13 @@
             this.mrcFinanzas.Controls.Add(this.mrcGastos);
             this.mrcFinanzas.Controls.Add(this.mrcIngresoMensual);
             this.mrcFinanzas.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mrcFinanzas.Location = new System.Drawing.Point(2, 12);
+            this.mrcFinanzas.Location = new System.Drawing.Point(1, 1);
             this.mrcFinanzas.Name = "mrcFinanzas";
-            this.mrcFinanzas.Size = new System.Drawing.Size(579, 525);
+            this.mrcFinanzas.Size = new System.Drawing.Size(586, 526);
             this.mrcFinanzas.TabIndex = 1;
             this.mrcFinanzas.TabStop = false;
             this.mrcFinanzas.Text = "Finanzas";
+            this.mrcFinanzas.Enter += new System.EventHandler(this.mrcFinanzas_Enter);
             // 
             // lblResultado
             // 
@@ -226,6 +228,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 539);
             this.Controls.Add(this.mrcFinanzas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmGastoMensual";
             this.Text = "Gasto Mensual";
             this.Load += new System.EventHandler(this.frmGastoMensual_Load);
