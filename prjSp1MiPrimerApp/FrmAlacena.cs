@@ -29,7 +29,9 @@ namespace prjSp1MiPrimerApp
             varCaducidad = dtpCaducidad.Value;
 
             lstLista.Items.Add(varLugar + varNombre +   varCantidad +   varCantidadMinima +   varCaducidad);
-            
+
+            this.Width = 850;
+
         }
 
         private void lstLista_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,7 +116,36 @@ namespace prjSp1MiPrimerApp
             
 
         }
-        
+
+        private void btnComida_CheckedChanged(object sender, EventArgs e)
+        {
+            lstLugar.Enabled = true;
+            lstNombre.Enabled = true;
+            nudCantidad.Enabled = true;
+            nudCantidadMinima.Enabled = true;
+        }
+
+        private void lstNombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpieza_CheckedChanged(object sender, EventArgs e)
+        {
+            lstLugar.Enabled = true;
+            lstNombre.Enabled = true;
+            nudCantidad.Enabled = true;
+            nudCantidadMinima.Enabled = true;
+        }
+
+        private void btnMedicamento_CheckedChanged(object sender, EventArgs e)
+        {
+            lstLugar.Enabled = true;
+            lstNombre.Enabled = true;
+            nudCantidad.Enabled = true;
+            nudCantidadMinima.Enabled = true;
+        }
+
         public frmAlacena()
         {
             InitializeComponent();
